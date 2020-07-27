@@ -1,5 +1,5 @@
 <?php
-require_once '..\Controllers\conexao.php';
+require_once '..\Controllers\Conexao.php';
 
 class Locais_model{
     function add($param){
