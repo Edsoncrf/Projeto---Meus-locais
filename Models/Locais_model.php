@@ -1,5 +1,5 @@
 <?php
-require_once '..\Controllers\Conexao.php';
+require_once '../Controllers/Conexao.php';
 
 class Locais_model{
     function add($param){
@@ -37,7 +37,7 @@ class Locais_model{
     function editar($param){
         try {
             $conexao = Conexao::getInstance();
-            $stmt = $conexao->prepare("UPDATE locais SET `nome`= :nome,'cep' = :cep,'logradouro' = :logradouro,'complemento' = :complemento,'numero' = :numero,'bairro' = :bairro,'uf' = :uf,'cidade' = :cidade,'data' = :data WHERE id = :idInsti");
+            $stmt = $conexao->prepare("UPDATE locais SET 'nome'= :nome,'cep' = :cep,'logradouro' = :logradouro,'complemento' = :complemento,'numero' = :numero,'bairro' = :bairro,'uf' = :uf,'cidade' = :cidade,'data' = :data WHERE id = :idInsti");
             $stmt->execute(array(
               ':nome' => $param['nome'],
               ':cep' => $param['cep'],
