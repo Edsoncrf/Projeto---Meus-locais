@@ -20,9 +20,11 @@
         <td>e</td>
         <td>x</td>
       </tr>
-      
+
     </table>
-    <input type="button" name="criar" value="Criar novo local">
+    <a href="#">
+    <button type="button" name="button">Criar novo local</button>
+    </a>
 
   </body>
 </html>

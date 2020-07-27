@@ -1,29 +1,29 @@
 <?php
+class ConexaoPdo {
+    private static $instancia;
 
-class Conexao{
+    private function __construct() {}
 
-    private static $conexao;
+    private function __clone() {}
 
-    private function __construct(){
-    }
+    private function __wakeup() {}
 
-    public static function getInstance(){
-        if (is_null(self::$conexao)){
-            //alterar a senha e o usuario conforme necessario
-            self::$conexao = new \PDO('mysql:host=localhost;port=3306;dbname=meuslocais', 'root', '', array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
-            self::$conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            self::$conexao->setAttribute(PDO::ATTR_ORACLE_NULLS, PDO::NULL_EMPTY_STRING);
+    public static function getInstancia() {
+        if (!isset(self::$instancia)) {
+            try {
+                $servidor = "mysql:host=localhost;dbname=meuslocais";
+                $usuario = "root";
+                $senha = "";
+
+                self::$instancia = new PDO($servidor, $usuario, $senha);
+
+                self::$instancia->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            } catch (PDOException $excecao) {
+                echo $excecao->getMessage();
+                exit();
+            }
         }
-        return self::$conexao;
-    }
-
-    public static function sessao(){
-        if (!isset($_SESSION['login'])) {
-
-            header('Location: ../index.php');
-
-        }
+        return self::$instancia;
     }
 }
-
 ?>
