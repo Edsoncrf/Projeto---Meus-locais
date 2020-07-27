@@ -1,7 +1,7 @@
 <?php
 require_once '../Controllers/Conexao.php';
 
-class Locais_model{
+class LocaisDAO{
     function add($param){
         try {
             $conexao = Conexao::getInstance();

@@ -6,45 +6,23 @@
     <?php include 'Views/modulos/header.php'?>
   </head>
   <body>
-    <h2>HTML Table</h2>
-
+    <h2>Locais</h2>
     <table>
       <tr>
-        <th>Company</th>
-        <th>Contact</th>
-        <th>Country</th>
+        <th>Nome</th>
+        <th>Data</th>
+        <th>Editar</th>
+        <th>Apagar</th>
       </tr>
-      <tr>
-        <td>Alfreds Futterkiste</td>
-        <td>Maria Anders</td>
-        <td>Germany</td>
+        <tr>
+        <td>Uruana</td>
+        <td>12/07/1997</td>
+        <td>e</td>
+        <td>x</td>
       </tr>
-      <tr>
-        <td>Centro comercial Moctezuma</td>
-        <td>Francisco Chang</td>
-        <td>Mexico</td>
-      </tr>
-      <tr>
-        <td>Ernst Handel</td>
-        <td>Roland Mendel</td>
-        <td>Austria</td>
-      </tr>
-      <tr>
-        <td>Island Trading</td>
-        <td>Helen Bennett</td>
-        <td>UK</td>
-      </tr>
-      <tr>
-        <td>Laughing Bacchus Winecellars</td>
-        <td>Yoshi Tannamuri</td>
-        <td>Canada</td>
-      </tr>
-      <tr>
-        <td>Magazzini Alimentari Riuniti</td>
-        <td>Giovanni Rovelli</td>
-        <td>Italy</td>
-      </tr>
+      
     </table>
+    <input type="button" name="criar" value="Criar novo local">
 
   </body>
 </html>
