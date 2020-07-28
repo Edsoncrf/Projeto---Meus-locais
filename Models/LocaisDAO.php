@@ -1,6 +1,6 @@
 <?php
-require_once "iModeloCrudDao.php"
-require_once "../Controllers/ConexaoPdo.php";
+require_once "iModeloCrudDao.php";
+require_once "Controllers/Conexao.php";
 
 class LocaisDAO implements iModeloCrudDao {
     private $instanciaConexaoPdo;
@@ -59,13 +59,30 @@ class LocaisDAO implements iModeloCrudDao {
           $getRow = $operacao->fetch(PDO::FETCH_OBJ);
           $nome = $getRow->nome;
           $data = $getRow->data;
-          $objeto = new Local($nome, $data);
+
+          $objeto = new Locais($nome, null, null, null, null, null, null, null, $data);
           $objeto->setId($id);
           return $objeto;
        } catch(PDOException $excecao){
           echo $excecao->getMessage();
        }
     }
+
+    // public function listarLocais() {
+    //    $sqlStmt = "SELECT * FROM {$this->tabela}";
+    //    try {
+    //       $operacao = $this->instanciaConexaoPdo->prepare($sqlStmt);
+    //       $operacao->execute();
+    //       $getRow = $operacao->fetch(PDO::FETCH_OBJ);
+    //       $nome = $getRow->nome;
+    //       $data = $getRow->data;
+    //
+    //       $objeto = new Locais($nome,$cep, $logradouro, $complemento, $numero, $bairro, $uf, $cidade, $data);
+    //       return $objeto;
+    //    } catch(PDOException $excecao){
+    //       echo $excecao->getMessage();
+    //    }
+    // }
 
     public function update($objeto) {
        $id = $objeto->getId();

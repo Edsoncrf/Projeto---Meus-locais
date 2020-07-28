@@ -15,7 +15,7 @@ class Locais {
   private $cidade;
   private $data;
 
-  public function __construct($nome, $data) {
+  public function __construct($nome, $cep, $logradouro, $complemento, $numero, $bairro, $uf, $cidade, $data) {
         $this->nome = $nome;
         $this->cep = $cep;
         $this->logradouro = $logradouro;
@@ -26,6 +26,14 @@ class Locais {
         $this->cidade = $cidade;
         $this->data = $data;
     }
+
+  public function getId() {
+    return $this->id;
+  }
+
+  public function setId($id) {
+    $this->id= $id;
+  }
 
   public function getNome() {
     return $this->nome;
