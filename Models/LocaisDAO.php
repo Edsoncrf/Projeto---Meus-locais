@@ -68,21 +68,29 @@ class LocaisDAO implements iModeloCrudDao {
        }
     }
 
-    // public function listarLocais() {
-    //    $sqlStmt = "SELECT * FROM {$this->tabela}";
-    //    try {
-    //       $operacao = $this->instanciaConexaoPdo->prepare($sqlStmt);
-    //       $operacao->execute();
-    //       $getRow = $operacao->fetch(PDO::FETCH_OBJ);
-    //       $nome = $getRow->nome;
-    //       $data = $getRow->data;
-    //
-    //       $objeto = new Locais($nome,$cep, $logradouro, $complemento, $numero, $bairro, $uf, $cidade, $data);
-    //       return $objeto;
-    //    } catch(PDOException $excecao){
-    //       echo $excecao->getMessage();
-    //    }
-    // }
+    public function listarLocais(){
+			try{
+			$sqlStmt = "SELECT * FROM {$this->tabela}";
+			$operacao = $this->instanciaConexaoPdo->prepare($sqlStmt);
+			$operacao->execute();
+
+			$locais = new ArrayObject();
+
+			while($getRow = $operacao->fetch(PDO::FETCH_OBJ)){
+				$idLocal = $getRow->id;
+				$nome = $getRow->nome;
+        $data = $getRow->data;
+			  $objeto = new Locais($nome, null, null, null, null, null, null, null, $data);
+				//$objeto->setId($id_cidade);
+				$locais->append($objeto);
+			}
+			return $locais;
+
+			}catch(PDOException $excecao){
+				echo $excecao->getMessage();
+			}
+		}
+
 
     public function update($objeto) {
        $id = $objeto->getId();

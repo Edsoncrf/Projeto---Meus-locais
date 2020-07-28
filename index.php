@@ -15,11 +15,12 @@
 
 
   <?php
-    $c1 = new Locais("Edson", "a", "as", "asd", "asdf", "asdfg" , "asdfgh", "asdfghj", "12/07/1997");
+    $c1 = new Locais("Edson", "a", "as", "asd", "asdf", "asdfg" , "asdfgh", "asdfghj", "1997-07-12");
     $locaisDAO = new LocaisDAO();
     $locaisDAO->create($c1);
    ?>
 <div class="conteiner">
+  <h2>Locais</h2>
   <table>
     <thead>
       <tr>
@@ -34,39 +35,23 @@
 
       <?php
 
-          $locais = new Locais();
-          $locaisDAO = new LocaisDAO();
+          $locaisDAO2 = new LocaisDAO();
+          $locais2 = $locaisDAO2->listarLocais();
 
-          foreach ( $locais as $k => $v ) {
-
-
-          echo "<tr> <td>". utf8_encode($objP->getNome())  . "</td>".
-          "<td>" 	.  utf8_encode($v->getData()) . "</td>".
-          "<td> e </td>"." <td> x </td>"."</tr>";
-
+          foreach ( $locais2 as $k => $v ) {
+            //var_dump($v->getData());
+            $date = date_create($v->getData());
+            echo "<tr> <td>". utf8_encode($v->getNome())  . "</td>".
+            "<td>" 	.  date_format($date, 'd/m/Y') . "</td>"."<td>"
+            ."<button type='button' name='button'>e</button> ". "</td>"."<td>"
+            ."<button type='button' name='button'>x</button> ". "</td>"."</tr>";
         }
       ?>
     </tbody>
   </table>
 
 </div>
-    <h2>Locais</h2>
-    <table>
-      <tr>
-        <th>Nome</th>
-        <th>Data</th>
-        <th>Editar</th>
-        <th>Apagar</th>
-      </tr>
-        <tr>
-        <td>Uruana</td>
-        <td>12/07/1997</td>
-        <td>e</td>
-        <td>x</td>
-      </tr>
-
-    </table>
-    <a href="#">
+    <a href="novoLocal.php">
     <button type="button" name="button">Criar novo local</button>
     </a>
 
