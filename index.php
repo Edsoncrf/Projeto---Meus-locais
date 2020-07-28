@@ -42,11 +42,13 @@
 
             $date = date_create($v->getData());
             $alterar = ($v->getId());
-            var_dump($alterar);
+            // var_dump($alterar);
             echo "<tr> <td>". utf8_encode($v->getNome())  . "</td>".
             "<td>" 	.  date_format($date, 'd/m/Y') . "</td>". "<td>"
             . '<button id=',$alterar,' name=alterar tabindex="0" type="submit">Editar</button>' . "</td>".
-              "<td>" 	. '<button class="ui red button" id=',$alterar," onclick=", $locaisDAO2->delete($alterar),">Apagar</button>" . "</td>";
+              "<td>" 	. '<button class="ui red button" id=',$alterar," onclick=",
+              ">Apagar</button>" . "</td>";
+              // $locaisDAO2->delete($alterar),">Apagar</button>" . "</td>";
         }
       ?>
     </tbody>
