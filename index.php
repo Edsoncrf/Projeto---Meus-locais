@@ -39,14 +39,14 @@
           $locais2 = $locaisDAO2->listarLocais();
 
           foreach ( $locais2 as $k => $v ) {
-            var_dump($v->getId());
-            // var_dump(idLocal);
 
             $date = date_create($v->getData());
+            $alterar = ($v->getId());
+            var_dump($alterar);
             echo "<tr> <td>". utf8_encode($v->getNome())  . "</td>".
-            "<td>" 	.  date_format($date, 'd/m/Y') . "</td>"."<td>"
-            ."<input type= 'button' name ='editar' id='editar' class='btn btn-danger' src='' value='Editar'> ". "</td>"."<td>"
-            ."<input type= 'button' name ='apagar' id='apagar' class='btn btn-danger' src='' value='Apagar'>". "</td>"."</tr>";
+            "<td>" 	.  date_format($date, 'd/m/Y') . "</td>". "<td>"
+            . '<button id=',$alterar,' name=alterar tabindex="0" type="submit">Editar</button>' . "</td>".
+              "<td>" 	. '<button class="ui red button" id=',$alterar," onclick=", $locaisDAO2->delete($alterar),">Apagar</button>" . "</td>";
         }
       ?>
     </tbody>
@@ -54,7 +54,7 @@
 
 </div>
     <a href="novoLocal.php">
-    <button type="button" name="button">Criar novo local</button>
+    <button class="btnForm" type="button" name="button">Criar novo local</button>
     </a>
 
   </body>

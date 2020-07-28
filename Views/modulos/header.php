@@ -1,1 +1,1 @@
-<link rel="stylesheet" href="Views/css/style.css">
+<link  href="Views/css/style.css" rel="stylesheet">

@@ -50,6 +50,23 @@ class LocaisDAO implements iModeloCrudDao {
         }
     }
 
+    // public function read($id) {
+    //    $sqlStmt = "SELECT * FROM {$this->tabela} WHERE id=:id";
+    //    try {
+    //       $operacao = $this->instanciaConexaoPdo->prepare($sqlStmt);
+    //       $operacao->bindValue(":id", $id, PDO::PARAM_INT);
+    //       $operacao->execute();
+    //       $getRow = $operacao->fetch(PDO::FETCH_OBJ);
+    //       $nome = $getRow->nome;
+    //       $data = $getRow->data;
+    //
+    //       $objeto = new Locais($nome, null, null, null, null, null, null, null, $data);
+    //       $objeto->setId($id);
+    //       return $objeto;
+    //    } catch(PDOException $excecao){
+    //       echo $excecao->getMessage();
+    //    }
+    // }
     public function read($id) {
        $sqlStmt = "SELECT * FROM {$this->tabela} WHERE id=:id";
        try {
@@ -57,10 +74,6 @@ class LocaisDAO implements iModeloCrudDao {
           $operacao->bindValue(":id", $id, PDO::PARAM_INT);
           $operacao->execute();
           $getRow = $operacao->fetch(PDO::FETCH_OBJ);
-          $nome = $getRow->nome;
-          $data = $getRow->data;
-
-          $objeto = new Locais($nome, null, null, null, null, null, null, null, $data);
           $objeto->setId($id);
           return $objeto;
        } catch(PDOException $excecao){
@@ -81,7 +94,7 @@ class LocaisDAO implements iModeloCrudDao {
 				$nome = $getRow->nome;
         $data = $getRow->data;
 			  $objeto = new Locais($nome, null, null, null, null, null, null, null, $data);
-				//$objeto->setId($id_cidade);
+				$objeto->setId($idLocal);
 				$locais->append($objeto);
 			}
 			return $locais;

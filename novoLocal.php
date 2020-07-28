@@ -3,6 +3,7 @@
 <html lang="pt-br" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <?php include 'Views/modulos/header.php'?>
     <title></title>
   </head>
   <body>
@@ -70,7 +71,7 @@
             Data:</br>
             <input class="" type="date" name="data" id="data" placeholder="00-00-0000" required /><br/><br/>
 
-            <input class="button" type="submit" name="btCadastrar" value="Cadastrar">
+            <input class="button btnForm" type="submit" name="btCadastrar" value="Cadastrar">
             </div>
           </form>
 
