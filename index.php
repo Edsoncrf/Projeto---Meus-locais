@@ -38,19 +38,16 @@
           $locaisDAO2 = new LocaisDAO();
           $locais2 = $locaisDAO2->listarLocais();
 
-          foreach ( $locais2 as $k => $v ) {
+          foreach ($locais2 as  $registro) {  $date = date_create($registro->getData()); ?>
+<tr>
 
-            $date = date_create($v->getData());
-            $alterar = ($v->getId());
-            // var_dump($alterar);
-            echo "<tr> <td>". utf8_encode($v->getNome())  . "</td>".
-            "<td>" 	.  date_format($date, 'd/m/Y') . "</td>". "<td>"
-            . '<button id=',$alterar,' name=alterar tabindex="0" type="submit">Editar</button>' . "</td>".
-              "<td>" 	. '<button class="ui red button" id=',$alterar," onclick=",
-              ">Apagar</button>" . "</td>";
-              // $locaisDAO2->delete($alterar),">Apagar</button>" . "</td>";
-        }
-      ?>
+          <td><?= $registro->getNome() ?></td>
+          <td><?=  date_format($date, 'd/m/Y')?></td>
+          <td  data-id=<?= $registro->getId()?>> <button  type="button"  onclick="teste()">Editar</button> </td>
+          <td data-bruno=<?= $registro->getId()?>> <button type="button"   onclick="teste()">Excluir</button> </td>
+        </tr>
+
+      <?php }?>
     </tbody>
   </table>
 
@@ -60,4 +57,11 @@
     </a>
 
   </body>
+  <script src="http://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
+  <script type="text/javascript">
+    function teste(){
+      console.log($(this).data("bruno"))
+    }
+  </script>
 </html>
