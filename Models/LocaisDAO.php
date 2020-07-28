@@ -143,7 +143,7 @@ class LocaisDAO implements iModeloCrudDao {
        }
     }
 
-    public function delete( $id ) {
+    public function delete($id) {
         $sqlStmt = "DELETE FROM {$this->tabela} WHERE id=:id";
        try {
           $operacao = $this->instanciaConexaoPdo->prepare($sqlStmt);
