@@ -15,9 +15,9 @@
 
 
   <?php
-    $c1 = new Locais("Edson", "a", "as", "asd", "asdf", "asdfg" , "asdfgh", "asdfghj", "1997-07-12");
-    $locaisDAO = new LocaisDAO();
-    $locaisDAO->create($c1);
+    // $c1 = new Locais("Edson", "a", "as", "asd", "asdf", "asdfg" , "asdfgh", "asdfghj", "1997-07-12");
+    // $locaisDAO = new LocaisDAO();
+    // $locaisDAO->create($c1);
    ?>
 <div class="conteiner">
   <h2>Locais</h2>
@@ -39,12 +39,14 @@
           $locais2 = $locaisDAO2->listarLocais();
 
           foreach ( $locais2 as $k => $v ) {
-            //var_dump($v->getData());
+            var_dump($v->getId());
+            // var_dump(idLocal);
+
             $date = date_create($v->getData());
             echo "<tr> <td>". utf8_encode($v->getNome())  . "</td>".
             "<td>" 	.  date_format($date, 'd/m/Y') . "</td>"."<td>"
-            ."<button type='button' name='button'>e</button> ". "</td>"."<td>"
-            ."<button type='button' name='button'>x</button> ". "</td>"."</tr>";
+            ."<input type= 'button' name ='editar' id='editar' class='btn btn-danger' src='' value='Editar'> ". "</td>"."<td>"
+            ."<input type= 'button' name ='apagar' id='apagar' class='btn btn-danger' src='' value='Apagar'>". "</td>"."</tr>";
         }
       ?>
     </tbody>
